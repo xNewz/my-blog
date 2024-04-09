@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { MoonIcon, SunIcon } from "./icons";
+import { MoonIcon, SunIcon } from "./Icons";
 
 const ThemeSwitch = () => {
   const { theme, setTheme } = useTheme();
