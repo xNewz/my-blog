@@ -1,15 +1,4 @@
-import { init } from "next/dist/compiled/webpack/webpack";
 import { Rule } from "sanity";
-
-export function toThaiSlug(inputString: string): string {
-  let slug = inputString.replace(/\s+/g, "-");
-  slug = slug.replace("%", "เปอร์เซนต์");
-  slug = slug.replace(/[^\p{L}\p{N}\s-]/gu, "");
-  slug = slug.replace(/--+/, "-");
-  slug = slug.replace(/^-+|-+$/g, "");
-
-  return slug;
-}
 
 export const post = {
   name: "post",
@@ -28,7 +17,6 @@ export const post = {
       type: "slug",
       options: {
         source: "title",
-        slugify: toThaiSlug,
       },
       validation: (Rule: Rule) => Rule.required().error("Required"),
     },
