@@ -4,6 +4,7 @@ export const post = {
   name: "post",
   title: "Post",
   type: "document",
+
   fields: [
     {
       name: "title",
@@ -15,9 +16,7 @@ export const post = {
       name: "slug",
       title: "Slug",
       type: "slug",
-      options: {
-        source: "title",
-      },
+      options: { source: "title" },
       validation: (Rule: Rule) => Rule.required().error("Required"),
     },
     {
@@ -25,7 +24,6 @@ export const post = {
       title: "Published at",
       type: "datetime",
       initialValue: () => new Date().toISOString(),
-      validation: (Rule: Rule) => Rule.required().error("Required"),
     },
     {
       name: "excerpt",
@@ -38,18 +36,10 @@ export const post = {
       title: "Body",
       type: "array",
       of: [
-        {
-          type: "block",
-        },
+        { type: "block" },
         {
           type: "image",
-          fiels: [
-            {
-              type: "text",
-              name: "alt",
-              title: "Alt",
-            },
-          ],
+          fields: [{ type: "text", name: "alt", title: "Alt" }],
         },
       ],
     },
@@ -57,12 +47,7 @@ export const post = {
       name: "tags",
       title: "Tags",
       type: "array",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "tag" }],
-        },
-      ],
-    }
+      of: [{ type: "reference", to: [{ type: "tag" }] }],
+    },
   ],
 };
